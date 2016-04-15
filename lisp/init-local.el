@@ -82,6 +82,10 @@ when toggle off input method, switch to evil-normal-state if current state is ev
 
 (custom-set-variables '(default-input-method "eim-py"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(setq auto-save-mode nil)
+(setq make-backup-files nil)
+(setq mouse-yank-at-point t)
+(setq-default make-backup-files nil)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-local)
