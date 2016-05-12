@@ -82,10 +82,21 @@ when toggle off input method, switch to evil-normal-state if current state is ev
 
 (custom-set-variables '(default-input-method "eim-py"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq auto-save-mode nil)
-(setq make-backup-files nil)
-(setq mouse-yank-at-point t)
+(require-package 'neotree)
+(add-hook 'neotree-mode-hook
+            (lambda ()
+              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;auto save disable
+(setq-default auto-save-mode nil)
 (setq-default make-backup-files nil)
+(setq-default mouse-yank-at-point t)
+(setq-default make-backup-files nil)
+;;show line numbers
+(setq-default global-linum-model t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-local)
